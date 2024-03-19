@@ -1,0 +1,6 @@
+.vscode/
+.editorconfig
+build/
+obj/
+temp/
+*.d
