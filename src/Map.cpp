@@ -1,6 +1,7 @@
 #include "include/Game/Map.h"
 
 #include "include/Window.h"
+#include "include/Game/Game.h"
 
 Map::Map() {}
 

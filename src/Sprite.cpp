@@ -1,6 +1,7 @@
 #include "include/Game/Components/Sprite.h"
 
 #include "include/Window.h"
+#include "include/Game/Game.h"
 
 Sprite::Sprite(Entity* o) {
     linkTo(o);

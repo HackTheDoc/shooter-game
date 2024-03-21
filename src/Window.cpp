@@ -1,5 +1,6 @@
 #include "include/Window.h"
 
+#include "include/States/WindowStates.h"
 #include "include/Save.h"
 
 #include <iostream>
@@ -8,6 +9,7 @@ SDL_Window* Window::window = nullptr;
 
 const std::string Window::Title = "Shooter Game";
 bool Window::isRunning = false;
+bool Window::fullscreen = false;
 
 SDL_Renderer* Window::renderer = nullptr;
 SDL_Rect Window::screen = { 0, 0, 1280, 720 };
@@ -54,7 +56,7 @@ int Window::init() {
 
     manager = new Manager();
 
-    openGame();
+    openMainMenu();
     
     isRunning = true;
 
@@ -62,13 +64,13 @@ int Window::init() {
 }
 
 void Window::update() {
-    game->update();
+    manager->updateCurrentWindowState();
 }
 
 void Window::render() {
     SDL_RenderClear(renderer);
 
-    game->render();
+    manager->renderCurrentWindowState();
 
     SDL_RenderPresent(renderer);
 }
@@ -78,7 +80,7 @@ void Window::handleEvents() {
 
     switch (event.e.type) {
     case SDL_QUIT:
-        isRunning = false;
+        event.raise(Event::ID::QUIT);
         break;
     default:
         event.handleKeyboardInputs();
@@ -101,20 +103,22 @@ void Window::kill() {
     SDL_Quit();
 }
 
+void Window::openMainMenu() {
+    manager->addWindowState(WindowState::ID::MAIN, new MainMenu());
+    manager->setCurrentWindowState(WindowState::ID::MAIN);
+}
+
 void Window::openGame() {
     if (!fs::exists("data")) Save::Create();
     Save::Load();
 
-    if (game) delete game;
-    
-    game = new Game();
-    game->init();
+    manager->removeWindowState(WindowState::ID::MAIN);
+    manager->addWindowState(WindowState::ID::GAME, new Game());
+    manager->setCurrentWindowState(WindowState::ID::GAME);
 }
 
 void Window::quitGame() {
     Save::Update();
 
-    game->clean();
-    delete game;
-    game = nullptr;
+    openMainMenu();
 }

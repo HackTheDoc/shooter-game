@@ -1,6 +1,7 @@
 #include "include/Game/Entities/Player.h"
 
 #include "include/Window.h"
+#include "include/Game/Game.h"
 
 Player::Player() {}
 

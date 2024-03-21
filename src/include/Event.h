@@ -11,6 +11,13 @@ private:
 public:
     enum ID {
         UNKNOWN,
+        QUIT,
+
+        // MAIN MENU
+        OPEN_GAME,
+        CREATE_NEW_GAME,
+        OPEN_OPTIONS,
+        OPEN_CREDITS,
 
         // MOVEMENT
         MOVE_UP,

@@ -5,12 +5,11 @@
 #include "Manager.h"
 #include "Event.h"
 
-#include "Game/Game.h"
-
 class Window {
 public:
     static const std::string Title;
     static bool isRunning;
+    static bool fullscreen;
 
     static SDL_Renderer* renderer;
     static SDL_Rect screen;
@@ -27,16 +26,12 @@ public:
     void handleEvents();
     void kill();
 
-    /* ----- GAME ----- */
-
+    void openMainMenu();
+    
     void openGame();
-
-    /// @brief quit the world and save playtime
     void quitGame();
 
 private:
     /// @brief the actual window
     static SDL_Window* window;
-
-    Game* game;
 };

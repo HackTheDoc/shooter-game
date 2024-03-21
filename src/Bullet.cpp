@@ -1,6 +1,7 @@
 #include "include/Game/Components/Bullet.h"
 
-#include "include/Window.h"
+#include "include/Game/Game.h"
+#include "include/Manager.h"
 
 Bullet::Bullet(const Vector2D& pos, const Orientation o) {
     position = pos;

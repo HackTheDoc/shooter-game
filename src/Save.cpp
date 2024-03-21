@@ -18,7 +18,7 @@ void Save::Create() {
     std::ofstream outfile("data", std::ios::binary);
 
     const size_t msize = controls.size();
-        outfile.write(reinterpret_cast<const char*>(&msize), sizeof(size_t));
+    outfile.write(reinterpret_cast<const char*>(&msize), sizeof(size_t));
 
     for (const auto& [key, value] : controls) {
         outfile.write(reinterpret_cast<const char*>(&key), sizeof(SDL_KeyCode));

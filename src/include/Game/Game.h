@@ -7,7 +7,9 @@
 #include "Entities/Entities.h"
 #include "Map.h"
 
-class Game {
+#include "../States/WindowState.h"
+
+class Game : public WindowState {
 public:
     static Map* map;
     static SDL_Rect camera;
@@ -16,10 +18,10 @@ public:
     Game();
     ~Game();
 
-    void init();
-    void update();
-    void render();
-    void clean();
+    void init() override;
+    void update() override;
+    void render() override;
+    void clean() override;
 
 private:
     // nothing for now

@@ -58,7 +58,6 @@ void Event::handleKeyboardInputs() {
             break;
         case Event::ID::UNKNOWN:
         default:
-            raise(KeyMap::Key[k]);
             break;
         }
     }
@@ -74,6 +73,12 @@ bool Event::mouseClickRight() {
 
 void Event::raise(const Event::ID id) {
     switch (id) {
+    case ID::QUIT:
+        Window::isRunning = false;
+        break;
+    case ID::OPEN_GAME:
+        window->openGame();
+        break;
         
     default:
         break;
