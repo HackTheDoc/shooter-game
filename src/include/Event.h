@@ -8,16 +8,25 @@ class Event {
 private:
     Window* window; // owner window
 
+    void handleGameEvents();
+    void handlePauseMenuEvents();
+
 public:
     enum ID {
         UNKNOWN,
         QUIT,
 
-        // MAIN MENU
-        OPEN_GAME,
         CREATE_NEW_GAME,
+
+        OPEN_GAME,
+        QUIT_GAME,
+
         OPEN_OPTIONS,
+
         OPEN_CREDITS,
+
+        OPEN_PAUSE_MENU,
+        CLOSE_PAUSE_MENU,
 
         // MOVEMENT
         MOVE_UP,

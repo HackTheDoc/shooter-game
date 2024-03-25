@@ -7,10 +7,11 @@
 
 void Save::Create() {
     const std::map<SDL_KeyCode, Event::ID> controls{
-        {SDLK_z     , Event::ID::MOVE_UP    },
-        {SDLK_s     , Event::ID::MOVE_DOWN  },
-        {SDLK_q     , Event::ID::MOVE_LEFT  },
-        {SDLK_d     , Event::ID::MOVE_RIGHT },
+        {SDLK_ESCAPE, Event::ID::OPEN_PAUSE_MENU },
+        {SDLK_z     , Event::ID::MOVE_UP         },
+        {SDLK_s     , Event::ID::MOVE_DOWN       },
+        {SDLK_q     , Event::ID::MOVE_LEFT       },
+        {SDLK_d     , Event::ID::MOVE_RIGHT      },
 
         {SDLK_SPACE , Event::ID::SHOOT      },
     };

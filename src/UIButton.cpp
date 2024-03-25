@@ -21,6 +21,8 @@ UIButton::UIButton(const std::string& text, const Event::ID id, const std::strin
     setText(text, font, color);
 
     place(0, 0);
+
+    hovered = false;
 }
 
 UIButton::~UIButton() {}

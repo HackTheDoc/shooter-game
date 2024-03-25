@@ -5,3 +5,5 @@
 #include "MainMenu.h"
 
 #include "../Game/Game.h"
+
+#include "PauseMenu.h"

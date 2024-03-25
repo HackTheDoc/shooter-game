@@ -62,6 +62,8 @@ public:
     
     void renderCurrentWindowState();
 
+    WindowState::ID getCurrentWindowStateID();
+
 private:
     /* ----- FONTS ----- */
 

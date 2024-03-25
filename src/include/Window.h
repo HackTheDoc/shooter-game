@@ -31,6 +31,9 @@ public:
     void openGame();
     void quitGame();
 
+    void pauseGame();
+    void resumeGame();
+
 private:
     /// @brief the actual window
     static SDL_Window* window;

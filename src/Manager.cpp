@@ -253,15 +253,17 @@ void Manager::DrawLine(const int x1, const int y1, const int x2, const int y2, c
 void Manager::addWindowState(const WindowState::ID id, WindowState* ws) {
     if (id == WindowState::ID::MAIN) clearWindowStates();
 
+    removeWindowState(id);
+
     windowStates.emplace(id, ws);
     windowStates[id]->init();
 }
 
 void Manager::removeWindowState(const WindowState::ID id) {
     if (windowStates.count(id) == 0)
-        return
+        return;
 
-        windowStates[id]->clean();
+    windowStates[id]->clean();
     windowStates.erase(id);
     currentWindowState = previousWindowState;
 }
@@ -279,6 +281,10 @@ void Manager::renderCurrentWindowState() {
     if (currentWindowState > WindowState::ID::GAME)
         windowStates[WindowState::ID::GAME]->render();
     windowStates[currentWindowState]->render();
+}
+
+WindowState::ID Manager::getCurrentWindowStateID() {
+    return currentWindowState;
 }
 
 void Manager::clearWindowStates() {

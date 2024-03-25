@@ -122,3 +122,12 @@ void Window::quitGame() {
 
     openMainMenu();
 }
+
+void Window::pauseGame() {
+    manager->addWindowState(WindowState::ID::PAUSE_MENU, new PauseMenu());
+    manager->setCurrentWindowState(WindowState::ID::PAUSE_MENU);
+}
+
+void Window::resumeGame() {
+    manager->setCurrentWindowState(WindowState::ID::GAME);
+}
