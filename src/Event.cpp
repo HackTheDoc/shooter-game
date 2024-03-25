@@ -43,6 +43,12 @@ void Event::raise(const Event::ID id) {
     case ID::QUIT:
         Window::isRunning = false;
         break;
+    case ID::OPEN_CREDITS:
+        window->openCredits();
+        break;
+    case ID::QUIT_CREDITS:
+        window->openMainMenu();
+        break;
     case ID::OPEN_GAME:
         window->openGame();
         break;

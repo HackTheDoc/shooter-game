@@ -28,6 +28,8 @@ public:
 
     void openMainMenu();
     
+    void openCredits();
+
     void openGame();
     void quitGame();
 

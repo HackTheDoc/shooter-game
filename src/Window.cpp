@@ -108,6 +108,11 @@ void Window::openMainMenu() {
     manager->setCurrentWindowState(WindowState::ID::MAIN);
 }
 
+void Window::openCredits() {
+    manager->addWindowState(WindowState::ID::CREDITS, new Credits());
+    manager->setCurrentWindowState(WindowState::ID::CREDITS);
+}
+
 void Window::openGame() {
     if (!fs::exists("data")) Save::Create();
     Save::Load();

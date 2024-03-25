@@ -22,8 +22,10 @@ public:
         QUIT_GAME,
 
         OPEN_OPTIONS,
+        QUIT_OPTIONS,
 
         OPEN_CREDITS,
+        QUIT_CREDITS,
 
         OPEN_PAUSE_MENU,
         CLOSE_PAUSE_MENU,
